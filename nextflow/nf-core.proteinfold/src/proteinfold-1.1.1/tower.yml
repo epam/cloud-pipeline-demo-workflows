@@ -1,0 +1,17 @@
+reports:
+  esmfold_multiqc_report.html:
+    display: "ESMFOLD - MultiQC HTML report"
+  alphafold2_multiqc_report.html:
+    display: "ALPHAFOLD2 - MultiQC HTML report"
+  samplesheet.csv:
+    display: "Auto-created samplesheet with collated metadata and FASTQ paths"
+  "*_alphafold2_report.html":
+    display: "ALPHAFOLD2 - Predicted structures"
+  "*_esmfold_report.html":
+    display: "ESMFOLD - Predicted structures"
+  "*_alphafold2_foldseek.html":
+    display: "ALPHAFOLD2 - Foldseek output"
+  "*_esmfold_foldseek.html":
+    display: "ESMFOLD - Foldseek output"
+  "*_comparison_report.html":
+    display: "Structure comparison"

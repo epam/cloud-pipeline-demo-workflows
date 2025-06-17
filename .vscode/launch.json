@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "deploy",
+            "type": "bashdb",
+            "request": "launch",
+            "program": "${workspaceFolder}/deploy-pipelines-nextflow.sh",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "name": "nf-core.scrnaseq",
+    "description": "Bioinformatics best-practice analysis pipeline for processing 10x Genomics single-cell RNA-seq data.",
+    "version": "v3.0.0",
+    "grant_role_name": "ROLE_USER",
+    "grant_role_permissions": "21",
+    "parent_folder": "Pipelines-NextFlow",
+    "az": "Standard_D16s_v5",
+    "aws": "m5.4xlarge",
+    "gcp": "n2-standard-16"
+}

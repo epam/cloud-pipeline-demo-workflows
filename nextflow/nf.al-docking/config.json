@@ -1,0 +1,280 @@
+[ {
+  "name" : "test",
+  "description" : "Example configuration with receptors 1IEP and 1YOM.",
+  "configuration" : {
+    "nonPause" : false,
+    "cloudRegionId" : 1,
+    "main_file" : "src/nf.al-docking.sh",
+    "instance_size" : "${CP_CONFIG_JSON_INSTANCE_TYPE}",
+    "instance_disk" : "50",
+    "docker_image" : "library/nextflow:25.02.3-edge-rocky8",
+    "timeout" : 0,
+    "cmd_template" : "chmod +x ${CP_DOLLAR}SCRIPTS_DIR/[main_file] && ${CP_DOLLAR}SCRIPTS_DIR/[main_file]",
+    "language" : "other",
+    "parameters" : {
+      "receptor_sheet" : {
+        "description" : "Defines a path to the sheet of receptors (with pocket configs)",
+        "value" : "${NF_DEMO_BUCKET}/test-datasets/al-docking-chembl/receptorsheet.csv",
+        "type" : "input",
+        "section" : "Input",
+        "required" : true,
+        "no_override" : false
+      },
+      "params_file" : {
+        "description" : "JSON or YAML file with workflow parameters to be not overridden by configs",
+        "pretty_name" : "NextFlow -params-file",
+        "value" : "${NF_DEMO_BUCKET}/test-configs/al-docking-test/params-test.yaml",
+        "type" : "input",
+        "section" : "Input",
+        "required" : false,
+        "no_override" : false
+      },
+      "cache_zip" : {
+        "description" : "Cache .zip file with ligands prepared and docking results",
+        "pretty_name" : "Cache .zip",
+        "value" : "${NF_DEMO_BUCKET}/Databases/chembl_35/cache-5000.2025-06-09.01.zip",
+        "type" : "input",
+        "section" : "Input",
+        "required" : false,
+        "no_override" : false
+      },
+      "output_storage" : {
+        "description" : "Specifies a bucket to upload the samples results",
+        "value" : "${NF_DEMO_BUCKET}/test-outputs/al-docking/test-${CP_DOLLAR}{RUN_ID}",
+        "type" : "output",
+        "section" : "Output",
+        "required" : true,
+        "no_override" : false
+      },
+      "custom_config_path" : {
+        "description" : "Defines a path to the custom config for the pipeline including paths to the reference genome fasta and reference annotation",
+        "value" : "${NF_DEMO_BUCKET}/test-configs/al-docking-test/nf.al-docking-test.config",
+        "type" : "input",
+        "section" : "NextFlow",
+        "required" : true,
+        "no_override" : false
+      },
+      "NXF_DUMP_CHANNELS" : {
+        "pretty_name" : "NextFlow -dump-channels",
+        "value" : "true",
+        "type" : "boolean",
+        "section" : "NextFlow",
+        "required" : false,
+        "no_override" : false
+      },
+      "CP_CAP_CUSTOM_NextflowEventHandler" : {
+        "value" : "false",
+        "type" : "boolean",
+        "section" : "other",
+        "required" : false,
+        "no_override" : false
+      },
+      "CP_LOCALIZE_FROM_FILES_MAX_ENTRIES_PER_FILE" : {
+        "value" : "10000",
+        "type" : "int",
+        "section" : "Input",
+        "required" : false
+      },
+      "CP_SLEEP_AFTER_FAIL" : {
+        "value" : "true",
+        "type" : "boolean",
+        "section" : "NextFlow",
+        "required" : false
+      },
+      "CP_CAP_LIMIT_MOUNTS" : {
+        "value" : "None",
+        "type" : "string",
+        "required" : false
+      },
+      "INPUT_DIR" : {
+        "value" : "/common/input",
+        "type" : "string",
+        "section" : "Input",
+        "required" : false
+      },
+      "CP_LOCALIZE_FROM_FILES" : {
+        "value" : "eyAicmVjZXB0b3Jfc2hlZXQiOiAiKHMzfGdzfGF6KTpcL1wvW14sO1x0XFwnXFxcIiRdKiIsICJjdXN0b21fY29uZmlnX3BhdGgiOiAiKHMzfGdzfGF6KTpcL1wvW15cXCdcXFwiJF0qIiwgInBhcmFtc19maWxlIjogIihzM3xnc3xheik6XC9cL1teXFwnXFxcIiRdKiIgfQ==",
+        "type" : "string",
+        "section" : "Input",
+        "required" : false
+      },
+      "ANALYSIS_DIR" : {
+        "value" : "/common/analysis",
+        "type" : "string",
+        "section" : "Output",
+        "required" : false
+      },
+      "CP_CAP_AUTOSCALE" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      },
+      "CP_CAP_AUTOSCALE_WORKERS" : {
+        "value" : "8",
+        "type" : "int",
+        "required" : false
+      },
+      "CP_CAP_AUTOSCALE_HYBRID" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      },
+      "CP_CAP_SGE" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      },
+      "CP_CAP_CUSTOM_NF_EVENT_HANDLER" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      },
+      "CP_CAP_DIND_CONTAINER" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      }
+    },
+    "is_spot" : false
+  },
+  "default" : true
+}, {
+  "name" : "short",
+  "description" : "chembl_35 short to 1IEP and 1YOM",
+  "configuration" : {
+    "nonPause" : false,
+    "cloudRegionId" : 1,
+    "main_file" : "src/nf.al-docking.sh",
+    "instance_size" : "n2-standard-4",
+    "instance_disk" : "200",
+    "docker_image" : "library/nextflow:25.02.3-edge-rocky8",
+    "timeout" : 0,
+    "cmd_template" : "chmod +x ${CP_DOLLAR}SCRIPTS_DIR/[main_file] && ${CP_DOLLAR}SCRIPTS_DIR/[main_file]",
+    "language" : "other",
+    "parameters" : {
+      "receptor_sheet" : {
+        "description" : "Defines a path to the sheet of receptors (with pocket configs)",
+        "value" : "s3://nextflow-pipeline-demo/test-datasets/al-docking-chembl/receptorsheet.csv",
+        "type" : "input",
+        "section" : "Input",
+        "required" : true,
+        "no_override" : false
+      },
+      "params_file" : {
+        "description" : "JSON or YAML file with workflow parameters to be not overridden by configs",
+        "pretty_name" : "NextFlow -params-file",
+        "value" : "s3://nextflow-pipeline-demo/test-configs/al-docking-short/params-short.yaml",
+        "type" : "input",
+        "section" : "Input",
+        "required" : false,
+        "no_override" : false
+      },
+      "cache_zip" : {
+        "description" : "Cache .zip file with ligands prepared and docking results",
+        "pretty_name" : "Cache .zip",
+        "type" : "input",
+        "section" : "Input",
+        "required" : false,
+        "no_override" : false
+      },
+      "output_storage" : {
+        "description" : "Specifies a bucket to upload the samples results",
+        "value" : "${NF_DEMO_BUCKET}/test-outputs/al-docking/short-${CP_DOLLAR}{RUN_ID}",
+        "type" : "output",
+        "section" : "Output",
+        "required" : true,
+        "no_override" : false
+      },
+      "custom_config_path" : {
+        "description" : "Defines a path to the custom config for the pipeline including paths to the reference genome fasta and reference annotation",
+        "value" : "s3://nextflow-pipeline-demo/test-configs/al-docking-short/nf.al-docking-short.config",
+        "type" : "input",
+        "section" : "NextFlow",
+        "required" : true,
+        "no_override" : false
+      },
+      "NXF_DUMP_CHANNELS" : {
+        "pretty_name" : "NextFlow -dump-channels",
+        "value" : "true",
+        "type" : "boolean",
+        "section" : "NextFlow",
+        "required" : false,
+        "no_override" : false
+      },
+      "CP_CAP_CUSTOM_NextflowEventHandler" : {
+        "value" : "false",
+        "type" : "boolean",
+        "section" : "other",
+        "required" : false,
+        "no_override" : false
+      },
+      "CP_LOCALIZE_FROM_FILES_MAX_ENTRIES_PER_FILE" : {
+        "value" : "10000",
+        "type" : "int",
+        "section" : "Input",
+        "required" : false
+      },
+      "CP_SLEEP_AFTER_FAIL" : {
+        "value" : "true",
+        "type" : "boolean",
+        "section" : "NextFlow",
+        "required" : false
+      },
+      "CP_CAP_LIMIT_MOUNTS" : {
+        "value" : "None",
+        "type" : "string",
+        "required" : false
+      },
+      "INPUT_DIR" : {
+        "value" : "/common/input",
+        "type" : "string",
+        "section" : "Input",
+        "required" : false
+      },
+      "CP_LOCALIZE_FROM_FILES" : {
+        "value" : "eyAicmVjZXB0b3Jfc2hlZXQiOiAiKHMzfGdzfGF6KTpcL1wvW14sO1x0XFwnXFxcIiRdKiIsICJjdXN0b21fY29uZmlnX3BhdGgiOiAiKHMzfGdzfGF6KTpcL1wvW15cXCdcXFwiJF0qIiwgInBhcmFtc19maWxlIjogIihzM3xnc3xheik6XC9cL1teXFwnXFxcIiRdKiIgfQ==",
+        "type" : "string",
+        "section" : "Input",
+        "required" : false
+      },
+      "ANALYSIS_DIR" : {
+        "value" : "/common/analysis",
+        "type" : "string",
+        "section" : "Output",
+        "required" : false
+      },
+      "CP_CAP_AUTOSCALE" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      },
+      "CP_CAP_AUTOSCALE_WORKERS" : {
+        "value" : "8",
+        "type" : "int",
+        "required" : false
+      },
+      "CP_CAP_AUTOSCALE_HYBRID" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      },
+      "CP_CAP_SGE" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      },
+      "CP_CAP_CUSTOM_NF_EVENT_HANDLER" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      },
+      "CP_CAP_DIND_CONTAINER" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      }
+    },
+    "is_spot" : false
+  },
+  "default" : false
+} ]

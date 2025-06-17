@@ -1,0 +1,12 @@
+{
+    "recommendations": [
+        "ms-python.python",
+        "ms-python.black-formatter",
+        "nextflow.nextflow",
+        "mads-hartmann.bash-ide-vscode",
+        "rogalmic.bash-debug",
+        "yzhang.markdown-all-in-one",
+        "streetsidesoftware.code-spell-checker",
+        "xyz.local-history"
+    ]
+}

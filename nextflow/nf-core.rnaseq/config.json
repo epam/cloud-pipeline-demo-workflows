@@ -1,0 +1,282 @@
+[ {
+  "name" : "full",
+  "description" : "test_full.config",
+  "configuration" : {
+    "nonPause" : false,
+    "cloudRegionId" : 1,
+    "main_file" : "src/nf-core.rnaseq.sh",
+    "instance_size" : "${CP_CONFIG_JSON_INSTANCE_TYPE}",
+    "instance_disk" : "2000",
+    "docker_image" : "library/nextflow:latest",
+    "timeout" : 0,
+    "cmd_template" : "chmod +x ${CP_DOLLAR}SCRIPTS_DIR/[main_file] && ${CP_DOLLAR}SCRIPTS_DIR/[main_file]",
+    "language" : "other",
+    "node_count" : 2,
+    "parameters" : {
+      "samplesheet_path" : {
+        "description" : "Defines a path to the sheet of samples",
+        "value" : "${NF_DEMO_BUCKET}/test-datasets/rnaseq-full/samplesheet_full.csv",
+        "type" : "input",
+        "section" : "other",
+        "required" : true,
+        "no_override" : false
+      },
+      "custom_config_path" : {
+        "description" : "Defines a path to the custom config for the pipeline including paths to the reference genome fasta and reference annotation",
+        "value" : "${NF_DEMO_BUCKET}/test-configs/rnaseq-full/test_full.config",
+        "type" : "input",
+        "section" : "other",
+        "required" : true,
+        "no_override" : false
+      },
+      "output_storage" : {
+        "description" : "Specifies a S3 bucket to upload the samples results",
+        "value" : "${NF_DEMO_BUCKET}/test-outputs/rnaseq/full-${CP_DOLLAR}{RUN_ID}",
+        "type" : "output",
+        "section" : "other",
+        "required" : true,
+        "no_override" : false
+      },
+      "CP_SLEEP_AFTER_FAIL" : {
+        "value" : "true",
+        "type" : "boolean",
+        "section" : "other",
+        "required" : false,
+        "no_override" : false
+      },
+      "CP_CAP_AUTOSCALE_SCALE_UP_BATCH_SIZE" : {
+        "value" : "3",
+        "type" : "int",
+        "section" : "other",
+        "required" : false,
+        "no_override" : false
+      },
+      "CP_LOCALIZE_FROM_FILES_MAX_ENTRIES_PER_FILE" : {
+        "value" : "10000",
+        "type" : "int",
+        "section" : "other",
+        "required" : false,
+        "no_override" : false
+      },
+      "CP_CAP_LIMIT_MOUNTS" : {
+        "value" : "None",
+        "type" : "string",
+        "required" : false
+      },
+      "ANALYSIS_DIR" : {
+        "value" : "/common/analysis",
+        "type" : "string",
+        "section" : "other",
+        "required" : false
+      },
+      "INPUT_DIR" : {
+        "value" : "/common/input",
+        "type" : "string",
+        "section" : "other",
+        "required" : false
+      },
+      "CP_CAP_SGE_WORKER_FREE_CORES" : {
+        "value" : "2",
+        "type" : "string",
+        "section" : "other",
+        "required" : false
+      },
+      "CP_CAP_SGE_MASTER_CORES" : {
+        "value" : "30",
+        "type" : "string",
+        "section" : "other",
+        "required" : false
+      },
+      "CP_LOCALIZE_FROM_FILES_RE_PATTERN" : {
+        "value" : "((s3|gs|az)://[^,;$']*())",
+        "type" : "string",
+        "section" : "other",
+        "required" : false
+      },
+      "CP_LOCALIZE_FROM_FILES" : {
+        "value" : "samplesheet_path, custom_config_path",
+        "type" : "string",
+        "section" : "other",
+        "required" : false
+      },
+      "CP_CAP_AUTOSCALE" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      },
+      "CP_CAP_AUTOSCALE_WORKERS" : {
+        "value" : "3",
+        "type" : "int",
+        "required" : false
+      },
+      "CP_CAP_AUTOSCALE_PRICE_TYPE" : {
+        "value" : "on-demand",
+        "type" : "string",
+        "required" : false
+      },
+      "CP_CAP_AUTOSCALE_HYBRID" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      },
+      "CP_CAP_SGE" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      },
+      "CP_CAP_SHARE_FS_TYPE" : {
+        "value" : "lfs",
+        "type" : "string",
+        "required" : false
+      },
+      "CP_CAP_DIND_CONTAINER" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      }
+    },
+    "is_spot" : false
+  },
+  "default" : false
+}, {
+  "name" : "test",
+  "description" : "Initial default configuration",
+  "configuration" : {
+    "nonPause" : false,
+    "cloudRegionId" : 1,
+    "main_file" : "src/nf-core.rnaseq.sh",
+    "instance_size" : "${CP_CONFIG_JSON_INSTANCE_TYPE}",
+    "instance_disk" : "300",
+    "docker_image" : "library/nextflow:latest",
+    "timeout" : 0,
+    "cmd_template" : "chmod +x ${CP_DOLLAR}SCRIPTS_DIR/[main_file] && ${CP_DOLLAR}SCRIPTS_DIR/[main_file]",
+    "language" : "other",
+    "parameters" : {
+      "samplesheet_path" : {
+        "description" : "Defines a path to the sheet of samples",
+        "value" : "${NF_DEMO_BUCKET}/test-datasets/rnaseq-test/samplesheet_test.csv",
+        "type" : "input",
+        "section" : "other",
+        "required" : true,
+        "no_override" : false
+      },
+      "custom_config_path" : {
+        "description" : "Defines a path to the custom config for the pipeline including paths to the reference genome fasta and reference annotation",
+        "value" : "${NF_DEMO_BUCKET}/test-configs/rnaseq-test/test.config",
+        "type" : "input",
+        "section" : "other",
+        "required" : true,
+        "no_override" : false
+      },
+      "output_storage" : {
+        "description" : "Specifies a S3 bucket to upload the samples results",
+        "value" : "${NF_DEMO_BUCKET}/test-outputs/rnaseq/test-${CP_DOLLAR}{RUN_ID}",
+        "type" : "output",
+        "section" : "other",
+        "required" : true,
+        "no_override" : false
+      },
+      "CP_SLEEP_AFTER_FAIL" : {
+        "value" : "true",
+        "type" : "boolean",
+        "section" : "other",
+        "required" : false,
+        "no_override" : false
+      },
+      "CP_CAP_AUTOSCALE_SCALE_UP_BATCH_SIZE" : {
+        "value" : "5",
+        "type" : "int",
+        "section" : "other",
+        "required" : false,
+        "no_override" : false
+      },
+      "CP_LOCALIZE_FROM_FILES_MAX_ENTRIES_PER_FILE" : {
+        "value" : "10000",
+        "type" : "int",
+        "section" : "other",
+        "required" : false,
+        "no_override" : false
+      },
+      "CP_NF_WORKDIR" : {
+        "value" : "/common/nxf-workdir/",
+        "type" : "string",
+        "section" : "other",
+        "required" : false,
+        "no_override" : false
+      },
+      "CP_CAP_LIMIT_MOUNTS" : {
+        "value" : "None",
+        "type" : "string",
+        "required" : false
+      },
+      "ANALYSIS_DIR" : {
+        "value" : "/common/analysis",
+        "type" : "string",
+        "section" : "other",
+        "required" : false
+      },
+      "INPUT_DIR" : {
+        "value" : "/common/input",
+        "type" : "string",
+        "section" : "other",
+        "required" : false
+      },
+      "CP_CAP_SGE_WORKER_FREE_CORES" : {
+        "value" : "2",
+        "type" : "string",
+        "section" : "other",
+        "required" : false
+      },
+      "CP_CAP_SGE_MASTER_CORES" : {
+        "value" : "30",
+        "type" : "string",
+        "section" : "other",
+        "required" : false
+      },
+      "CP_LOCALIZE_FROM_FILES_RE_PATTERN" : {
+        "value" : "((s3|gs|az)://[^,;$']*())",
+        "type" : "string",
+        "section" : "other",
+        "required" : false
+      },
+      "CP_LOCALIZE_FROM_FILES" : {
+        "value" : "samplesheet_path, custom_config_path",
+        "type" : "string",
+        "section" : "other",
+        "required" : false
+      },
+      "CP_CAP_AUTOSCALE" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      },
+      "CP_CAP_AUTOSCALE_WORKERS" : {
+        "value" : "3",
+        "type" : "int",
+        "required" : false
+      },
+      "CP_CAP_AUTOSCALE_HYBRID" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      },
+      "CP_CAP_SGE" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      },
+      "CP_CAP_CUSTOM_NF_EVENT_HANDLER" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      },
+      "CP_CAP_DIND_CONTAINER" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      }
+    },
+    "is_spot" : false
+  },
+  "default" : true
+} ]

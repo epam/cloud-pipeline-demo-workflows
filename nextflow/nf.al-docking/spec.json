@@ -1,0 +1,12 @@
+{
+    "name": "nf.al-docking",
+    "description": "Active learning-driven molecular docking pipeline that ingests receptor 3D structures and chemical compound database.",
+    "version": "v1.0.0",
+    "grant_role_name": "ROLE_USER",
+    "grant_role_permissions": "21",
+    "parent_folder": "Pipelines-NextFlow",
+    "disk_size": "60",
+    "az": "Standard_D4s_v3",
+    "aws": "m5.xlarge",
+    "gcp": "n2-standard-4"
+}

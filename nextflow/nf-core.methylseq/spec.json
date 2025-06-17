@@ -1,0 +1,11 @@
+{
+    "name": "nf-core.methylseq",
+    "description": "Bioinformatics analysis pipeline used for Methylation (Bisulfite) sequencing data",
+    "version": "v3.0.0",
+    "grant_role_name": "ROLE_USER",
+    "grant_role_permissions": "21",
+    "parent_folder": "Pipelines-NextFlow",
+    "az": "Standard_E16s_v5",
+    "aws":"r5.4xlarge",
+    "gcp":"n2-highmem-16"
+}

@@ -1,0 +1,11 @@
+{
+    "name": "nf-core.rnaseq",
+    "description": "Bioinformatics pipeline to analyse RNA sequencing data obtained from organisms with a reference genome and annotation.",
+    "version": "v3.18.0",
+    "grant_role_name": "ROLE_USER",
+    "grant_role_permissions": "21",
+    "parent_folder": "Pipelines-NextFlow",
+    "az": "Standard_D16s_v5",
+    "aws": "m5.4xlarge",
+    "gcp": "n2-standard-16"
+}

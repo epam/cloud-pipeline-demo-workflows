@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analysis Report - {{ receptor }}</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        .figure { margin-bottom: 20px; }
+        .figure img { max-width: 100%; height: auto; }
+        details { background: #f9f9f9; padding: 10px; border-radius: 4px; }
+        summary { font-weight: bold; cursor: pointer; }
+        pre { background: #eee; padding: 10px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>Analysis Report for {{ receptor }}</h1>
+
+    <details open>
+        <summary>Main Parameters</summary>
+        <pre>{{ params_json }}</pre>
+    </details>
+
+    <h2>Figures</h2>
+    {% for fig in figures %}
+    <div class="figure">
+        <h3>{{ fig.title }}</h3>
+        <img src="{{ fig.data }}" alt="{{ fig.title }}">
+    </div>
+    {% endfor %}
+</body>
+</html>

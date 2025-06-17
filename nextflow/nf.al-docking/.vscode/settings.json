@@ -1,0 +1,32 @@
+{
+    "chat.mcp.enabled": true,
+    "chat.mcp.discovery.enabled": true,
+    "markdown.styles": ["public/vscode_markdown.css"],
+    "files.exclude": {
+        ".history/": true,
+        "conf/": true,
+    },
+    "debug.inlineValues": "off",
+    "nextflow.telemetry.enabled": true,
+    "cSpell.words": [
+        "activelearning",
+        "chembl",
+        "cpus",
+        "csvr",
+        "csvw",
+        "DIND",
+        "edata",
+        "eweight",
+        "featurization",
+        "gine",
+        "heterograph",
+        "heteroscedastic",
+        "INITIALISATION",
+        "logvar",
+        "ndata",
+        "obabel",
+        "QVINA",
+        "receptorsheet",
+        "subworkflows"
+    ]
+}

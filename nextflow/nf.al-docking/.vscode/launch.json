@@ -1,0 +1,366 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "main.py Metaflow",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/pipeline/main.py",
+            "args": [
+                "run"
+            ],
+            "cwd": "${workspaceFolder}/analysis/1IEP",
+            "env": {
+                "CONDA_DEFAULT_ENV": "metaflow"
+            },
+            "justMyCode": false,
+            "subProcess": true,
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "test1.py Metaflow",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/pipeline/test1.py",
+            "args": [
+                "run"
+            ],
+            "cwd": "${workspaceFolder}/analysis/1IEP",
+            "env": {
+                "CONDA_DEFAULT_ENV": "metaflow"
+            },
+            "justMyCode": false,
+            "subProcess": true,
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "qvina 1IEP",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/pipeline/qvina.py",
+            "args": [
+                "--receptor_pdb",
+                "1IEP-wo-ligand.pdb",
+                "--ligand_csv",
+                "chembl_35-n3.csv",
+            ],
+            "cwd": "${workspaceFolder}/analysis/1IEP/qvina",
+            "subProcess": true,
+        },
+        {
+            "name": "pocket 1IEP",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/al-docking-1.0.0/bin/pocket.py",
+            "args": [
+                "1IEP.pdb",
+            ],
+            "cwd": "${workspaceFolder}/conf/1IEP",
+        },
+        {
+            "name": "pocket 1IVO",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/al-docking-1.0.0/bin/pocket.py",
+            "args": [
+                "1IVO.pdb",
+            ],
+            "cwd": "${workspaceFolder}/conf/1IVO",
+        },
+        {
+            "name": "split.csv",
+            "type": "debugpy",
+            "request": "launch",
+            "justMyCode": false,
+            "program": "${workspaceFolder}/src/al-docking-1.0.0/bin/split_csv.py",
+            "args": [
+                "--input", "${workspaceFolder}/src/al-docking-1.0.0/tests/data/test_chembl_12.csv",
+                "--part", "train-2.csv", "--part-size", "2",
+                "--part", "test-1.csv", "--part-size", "1",
+                "--part", "valid-4.csv", "--part-size", "4",
+                "--remain", "remain.csv",
+            ]
+        },
+        {
+            "name": "batch_obabel",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/al-docking-1.0.0/bin/batch_obabel.py",
+            "args": [
+                "--input", "${workspaceFolder}/analysis/tests/test_chembl.csv",
+                "--gen3d", "-d",
+            ]
+        },
+        {
+            "name": "batch_obabel.w-cache",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/al-docking-1.0.0/bin/batch_obabel.py",
+            "args": [
+                "--input", "${workspaceFolder}/analysis/tests/test_chembl.csv",
+                "--gen3d", "-d",
+                "--cache", "${workspaceFolder}/analysis/tests/_cache/ligand-pdb",
+            ]
+        },
+        {
+            "name": "batch_prepare_ligand",
+            "type": "debugpy",
+            "request" : "launch",
+            "program": "${workspaceFolder}/src/al-docking-1.0.0/bin/batch_prepare_ligand.py",
+            "args": [
+                "--input", "${workspaceFolder}/analysis/tests/test_chembl.csv",
+                "--input-pdb-col", "PDB",
+                "--input-pdbqt-col", "PDBQT",
+            ]
+        },
+        {
+            "name": "batch_prepare_ligand.w-cache",
+            "type": "debugpy",
+            "request" : "launch",
+            "program": "${workspaceFolder}/src/al-docking-1.0.0/bin/batch_prepare_ligand.py",
+            "args": [
+                "--input", "${workspaceFolder}/analysis/tests/test_chembl.csv",
+                "--input-pdb-col", "PDB",
+                "--input-pdbqt-col", "PDBQT",
+                "--cache", "${workspaceFolder}/analysis/tests/_cache/ligand-pdbqt"
+            ]
+        },
+        {
+            "name": "batch_prepare_ligand.at-work",
+            "type": "debugpy",
+            "request" : "launch",
+            "program": "${workspaceFolder}/src/al-docking-1.0.0/bin/batch_prepare_ligand.py",
+            "args": [
+                "--input", "1IEP-0000.train.pdb.csv",
+                "--input-id-col", "ID",
+                "--input-pdb-col", "PDB",
+                "--output", "1IEP-0000.train.pdb.pdbqt.csv",
+                "--output-pdbqt-col", "PDBQT",
+                "--output-pdbqt-pattern", "ligand-pdbqt-0000/ligand.{ID}.pdbqt",
+                "--cache", "/home/aleksandr_tanas/projs/pipe/pipelines/nfaldocking/conf/cache/ligand-pdbqt"
+            ],
+            "cwd": "${workspaceFolder}/analysis/test/work/1a/08ea4b0bce3263ab1f1b913a70eac3",
+        },
+        {
+            "name" : "batch_docking_qvina",
+            "type" : "debugpy",
+            "request" : "launch",
+            "program" : "${workspaceFolder}/src/al-docking-1.0.0/bin/batch_docking_qvina.py",
+            // prettier-ignore on
+            "args" : [
+                "--input", "${workspaceFolder}/analysis/tests/test_chembl.csv",
+                "--input-id-col", "ID",
+                "--input-pdbqt-col", "PDBQT",
+                "--receptor-id", "1IEP",
+                "--receptor-pdbqt", "${workspaceFolder}/conf/receptor.1IEP.pdbqt",
+                "--config", "${workspaceFolder}/conf/1IEP/1IEP.pocket.config",
+                "--output", "${workspaceFolder}/analysis/tests/test_chembl-docking.csv",
+                "--poses-pdbqt-dir", "${workspaceFolder}/analysis/tests/poses-pdbqt"
+            ]
+           // prettier-ignore off
+        },
+        {
+            "name" : "batch_docking_qvina.w-cache",
+            "type" : "debugpy",
+            "request" : "launch",
+            "program" : "${workspaceFolder}/src/al-docking-1.0.0/bin/batch_docking_qvina.py",
+            "args" : [
+                "--input", "${workspaceFolder}/analysis/tests/test_chembl.csv",
+                "--input-id-col", "ID",
+                "--input-pdbqt-col", "PDBQT",
+                "--receptor-id", "1IEP",
+                "--receptor-pdbqt", "${workspaceFolder}/conf/receptor.1IEP.pdbqt",
+                "--config", "${workspaceFolder}/conf/1IEP/1IEP.pocket.config",
+                "--output", "${workspaceFolder}/analysis/tests/test_chembl-docking.csv",
+                "--poses-pdbqt-dir", "${workspaceFolder}/analysis/tests/poses-pdbqt",
+                "--cache", "${workspaceFolder}/analysis/tests/_cache/poses-pdbqt"
+           ]   
+        },
+        {
+            "name": "batch_docking_qvina.at-work",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/al-docking-1.0.0/bin/batch_docking_qvina.py",
+            "args": [
+                "--input", "1YOM-0000.test.pdb.pdbqt.csv",
+                "--input-id-col", "ID",
+                "--input-pdbqt-col", "PDBQT",
+                "--receptor-id", "1YOM",
+                "--receptor-pdbqt", "receptor.1YOM.pdbqt",
+                "--config", "1YOM.pocket.config",
+                "--output", "1YOM-0000.test.pdb.pdbqt.docked.csv",
+                "--poses-pdbqt-dir", "poses-pdbqt-0000",
+                "--cache", "/home/aleksandr_tanas/projs/pipe/pipelines/nfaldocking/conf/cache/poses-pdbqt", 
+                "--seed", "42"
+            ],
+            "cwd": "${workspaceFolder}/analysis/test/work/c6/43f73be8ba500eb8510441c0268aaa"
+        },
+        {
+            "name": "batch_calc_fingerprints",
+            "type": "debugpy",
+            "request": "launch",
+            "program" : "${workspaceFolder}/src/al-docking-1.0.0/bin/batch_calc_fingerprints.py",
+            "args": [
+                "--input", "${workspaceFolder}/analysis/tests/test_chembl.csv",
+                "--input-id-col", "ID",
+                "--input-smiles-col", "SMILES",
+                "--ecfp-radius", "2",
+                "--ecfp-bits", "512",
+                "--output", "test_chembl-fingerprints.csv"
+            ]
+        },
+        {
+            "name": "select_shorts",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/al-docking-1.0.0/bin/select_shorts.py",
+            "args": [
+                "--input",
+                "chembl_35.csv",
+                "--limit",
+                "20",
+                "--output",
+                "chembl_35-short.csv",
+            ],
+            "cwd": "${workspaceFolder}/conf",
+        },
+        {
+            "name": "R: affinity-hist",
+            "type": "R-Debugger",
+            "request": "launch",
+            "debugMode": "file",
+            "workingDirectory": "${workspaceFolder}",
+            "file": "${workspaceFolder}/src/al-docking-1.0.0/tools/affinity-hist.R",
+        },
+        {
+            "name": "train_map",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/al-docking-1.0.0/tools/al_breakdown/train_map.py",
+            "args": [
+                "--title", "Test",
+                "--step", "0",
+                "--train", "1IEP-0000.train.pdb.pdbqt.docked.csv",
+                "--test", "1IEP-0000.test.pdb.pdbqt.docked.csv",
+                "--valid", "validation-1IEP.pdb.pdbqt.docked.csv",
+                "--target_col", "affinity",
+                "--smiles_col", "SMILES",
+                "--seed", "42",
+                "--batch_size", "100",
+                "--num_epoches", "5",
+                "--use_gpu", "false"
+            ],
+            "cwd": "${workspaceFolder}/analysis/tests",
+        },
+        {
+            "name": "train_map.at-work",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/al-docking-1.0.0/tools/al_breakdown/train_map.py",
+            "args": [
+                "--title", "1IEP",
+                "--step", "0",
+                "--train", "1IEP-0000.train.pdb.pdbqt.docked.csv",
+                "--test", "1IEP-0000.test.pdb.pdbqt.docked.csv",
+                "--target_col", "affinity",
+                "--smiles_col", "SMILES",
+                "--seed", "42",
+                "--batch_size", "50",
+                "--num_epoches", "10",
+                "--use_gpu", "off",
+                "--output", "out-model.pth"
+            ],
+            "cwd": "${workspaceFolder}/analysis/test/work/32/b928c15d780920bd51cafe29fad2d2"
+        },
+        {
+            "name": "inference_map",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/al-docking-1.0.0/tools/al_breakdown/inference_map.py",
+            "args": [
+                "--title", "Test",
+                "--step", "0",
+                "--seed", "42",
+                "--unlabeled", "1IEP-0000.unlabeled.1000.csv",
+                "--model", "1IEP-0000.model.pth",
+                "--use_gpu", "false",
+                "--output", "1IEP-0000.unlabeled.inferred.csv",
+            ],
+            "cwd": "${workspaceFolder}/analysis/tests"
+        },
+        {
+            "name": "edit_dataset.at-work",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/al-docking-1.0.0/tools/al_breakdown/edit_dataset.py",
+            "args": [
+                "--title",       "1YOM",
+                "--input",       "1YOM-0000.unlabeled.inferred.csv",
+                "--method",      "unc",
+                "--output_size", "1000",
+                "--output",      "1YOM-0001.train.csv",
+                "--remain",      "1YOM-0001.train_remain.csv",
+                "--seed",        "42"
+            ],
+            "cwd": "${workspaceFolder}/analysis/test/work/55/7bb50df664ce718b02ef6d1db28c35"
+        },
+        {
+            "name": "plot_figures",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/al-docking-1.0.0/tools/al_breakdown/plot_figures.py",
+            "args" : [
+                "--data-dir", "./iterations",
+                "--receptor", "1IEP",
+                "--max-iteration-num", "7",
+                "--out-dir", "./figures"
+            ],
+            "cwd": "/common/analysis",
+        },
+        {
+            "name": "generate_report",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/al-docking-1.0.0/tools/al_breakdown/generate_report.py",
+            "args" : [
+                "--template", "/common/workdir/pipeline/assets/report_template.html",
+                "--data-dir", "./iterations",
+                "--receptor", "1IEP",
+                "--params-json", "/common/analysis/pipeline_info/params_*.json",
+                "--figures-dir", "./figures",
+                "--output", "./reports/report.html",
+            ],
+            "cwd": "/common/analysis"
+        },
+        {
+            "name": "prepare_dataset",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/al-docking-1.0.0/tools/prepare_dataset/prepare_dataset.py",
+            "args": [
+                "--db", "/common/input/Databases/chembl_35/chembl_35-short.csv",
+                "--poses", "/common/cache/poses-pdbqt/1IEP-4b3238",
+                "--size", "5000",
+                "--output", "/common/input/Databases/chembl_35/chembl_35-1IEP-4b3238-5000.csv"
+            ],
+            "cwd": "${workspaceFolder}",
+        },
+        {
+            "name": "filter_cache",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/al-docking-1.0.0/tools/prepare_dataset/filter_cache.py",
+            "args": [
+                "--input", "/common/input/Databases/chembl_35/chembl_35-1IEP-4b3238-5000.csv",
+                "--input-id-col", "ID",
+                "--input-cache-dir", "/common/cache",
+                "--output-cache-dir", "/common/cache-5000",
+                "--pattern", "ligand-pdb/ligand.{ID}.pdb",
+                "--pattern", "ligand-pdbqt/ligand.{ID}.pdbqt",
+                "--pattern", "poses-pdbqt/1IEP-4b3238/poses.{ID}-in-1IEP-4b3238.pdbqt",
+                "--pattern", "poses-pdbqt/1YOM-6c33db/poses.{ID}-in-1YOM-6c33db.pdbqt"
+            ],
+            "cwd": "${workspaceFolder}",
+        }
+    ]
+}

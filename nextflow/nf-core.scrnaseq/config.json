@@ -1,0 +1,102 @@
+[ {
+  "name" : "test",
+  "description" : "Initial default configuration",
+  "configuration" : {
+    "nonPause" : false,
+    "cloudRegionId" : 1,
+    "main_file" : "src/nf-core.scrnaseq.sh",
+    "instance_size" : "${CP_CONFIG_JSON_INSTANCE_TYPE}",
+    "instance_disk" : "300",
+    "docker_image" : "library/nextflow:latest",
+    "timeout" : 0,
+    "cmd_template" : "chmod +x ${CP_DOLLAR}SCRIPTS_DIR/[main_file] && ${CP_DOLLAR}SCRIPTS_DIR/[main_file]",
+    "language" : "other",
+    "parameters" : {
+      "samplesheet_path" : {
+        "description" : "Defines a path to the sheet of samples",
+        "value" : "${NF_DEMO_BUCKET}/test-datasets/scrnaseq-test/samplesheet-2-0.csv",
+        "type" : "input",
+        "section" : "other",
+        "required" : true,
+        "no_override" : false
+      },
+      "custom_config_path" : {
+        "description" : "Defines a path to the custom config for the pipeline including paths to the reference genome fasta and reference annotation",
+        "value" : "${NF_DEMO_BUCKET}/test-configs/scrnaseq-test/nf-scrnaseq-test.config",
+        "type" : "input",
+        "section" : "other",
+        "required" : true,
+        "no_override" : false
+      },
+      "output_storage" : {
+        "description" : "Specifies a bucket to upload the samples results",
+        "value" : "${NF_DEMO_BUCKET}/test-outputs/scrnaseq/test-${CP_DOLLAR}{RUN_ID}",
+        "type" : "output",
+        "section" : "other",
+        "required" : true,
+        "no_override" : false
+      },
+      "CP_LOCALIZE_FROM_FILES" : {
+        "value" : "samplesheet_path, custom_config_path",
+        "type" : "string",
+        "section" : "other",
+        "required" : false
+      },
+      "CP_LOCALIZE_FROM_FILES_RE_PATTERN" : {
+        "value" : "((s3|gs|az)://[^,;$']*())",
+        "type" : "string",
+        "section" : "other",
+        "required" : false
+      },
+      "CP_SLEEP_AFTER_FAIL" : {
+        "value" : "true",
+        "type" : "boolean",
+        "section" : "NextFlow",
+        "required" : false
+      },
+      "CP_CAP_LIMIT_MOUNTS" : {
+        "value" : "None",
+        "type" : "string",
+        "required" : false
+      },
+      "CP_CAP_KEEP_FAILED_RUN" : {
+        "value" : "36000s",
+        "type" : "string",
+        "section" : "other",
+        "required" : false
+      },
+      "CP_CAP_AUTOSCALE" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      },
+      "CP_CAP_AUTOSCALE_WORKERS" : {
+        "value" : "1",
+        "type" : "int",
+        "required" : false
+      },
+      "CP_CAP_AUTOSCALE_HYBRID" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      },
+      "CP_CAP_SGE" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      },
+      "CP_CAP_CUSTOM_NF_EVENT_HANDLER" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      },
+      "CP_CAP_DIND_CONTAINER" : {
+        "value" : "true",
+        "type" : "boolean",
+        "required" : false
+      }
+    },
+    "is_spot" : false
+  },
+  "default" : true
+} ]

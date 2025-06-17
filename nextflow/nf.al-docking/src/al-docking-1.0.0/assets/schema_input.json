@@ -1,0 +1,29 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/epam/al-docking/master/assets/schema_input.json",
+    "title": "nf-al-docking pipeline - params.input schema",
+    "description": "Schema for the file provided with params.input",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "id": {
+                "type": "string",
+                "description": "Receptor ID"
+            },
+            "pdb": {
+                "type": "string",
+                "description": "File path with receptor structure in PDB format"
+            },
+            "pocket_config" : {
+                "type": "string",
+                "description": "File path with pocket configuration in QVina config file format"
+            }
+        },
+        "required": [
+            "id",
+            "pdb",
+            "pocket_config"
+        ]
+    }
+}
