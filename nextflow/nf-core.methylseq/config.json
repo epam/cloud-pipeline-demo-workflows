@@ -30,7 +30,7 @@
       },
       "output_storage" : {
         "description" : "Specifies a bucket to upload the samples results",
-        "value" : "${NF_DEMO_BUCKET}/test-outputs/methylseq/test-${CP_DOLLAR}{RUN_ID}",
+        "value" : "${NF_OUTPUT_BUCKET}/test-outputs/methylseq/test-${CP_DOLLAR}{RUN_ID}",
         "type" : "output",
         "section" : "other",
         "required" : true,

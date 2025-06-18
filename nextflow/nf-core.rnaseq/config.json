@@ -31,7 +31,7 @@
       },
       "output_storage" : {
         "description" : "Specifies a S3 bucket to upload the samples results",
-        "value" : "${NF_DEMO_BUCKET}/test-outputs/rnaseq/full-${CP_DOLLAR}{RUN_ID}",
+        "value" : "${NF_OUTPUT_BUCKET}/test-outputs/rnaseq/full-${CP_DOLLAR}{RUN_ID}",
         "type" : "output",
         "section" : "other",
         "required" : true,
@@ -170,7 +170,7 @@
       },
       "output_storage" : {
         "description" : "Specifies a S3 bucket to upload the samples results",
-        "value" : "${NF_DEMO_BUCKET}/test-outputs/rnaseq/test-${CP_DOLLAR}{RUN_ID}",
+        "value" : "${NF_OUTPUT_BUCKET}/test-outputs/rnaseq/test-${CP_DOLLAR}{RUN_ID}",
         "type" : "output",
         "section" : "other",
         "required" : true,

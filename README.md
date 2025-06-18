@@ -22,7 +22,8 @@ GITLAB_ROOT_PASSWORD=<your_gitlab_user_password>
 CP_GITLAB_INTERNAL_HOST=<git_host>
 CP_GITLAB_INTERNAL_PORT=443
 CP_CLOUD_PLATFORM=<aws|gcp>
-NF_DEMO_BUCKET=<gs|s3://demo_data_bucket>
+NF_DEMO_BUCKET=<demo_data_bucket>
+NF_OUTPUT_BUCKET=<output_bucket>
 ```
 ---
 

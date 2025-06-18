@@ -3,6 +3,7 @@
         "chembl",
         "DIND",
         "DIRECTIO",
+        "envsubst",
         "fasta",
         "fastq",
         "methylseq",

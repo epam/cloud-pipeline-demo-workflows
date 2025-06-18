@@ -2,11 +2,11 @@
 
 pipeline_dirs=(
   "nextflow/nf.al-docking"
-#   "nextflow/nf-core.methylseq" 
-#   "nextflow/nf-core.proteinfold" 
-#   "nextflow/nf-core.rnaseq" 
-#   "nextflow/nf-core.sarek"
-#   "nextflow/nf-core.scrnaseq"
+  "nextflow/nf-core.methylseq" 
+  "nextflow/nf-core.proteinfold" 
+  "nextflow/nf-core.rnaseq" 
+  "nextflow/nf-core.sarek"
+  "nextflow/nf-core.scrnaseq"
 )
 env_file=".env"
 
@@ -14,12 +14,21 @@ env_file=".env"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 check_prerequisites() {
-    for cmd in jq; do
-        if ! command -v "$cmd" > /dev/null 2>&1; then
-            echo "ERROR: '$cmd' is required but not installed. Please install it (e.g. sudo apt-get update && sudo apt-get install -y $cmd)"
-            exit 1
-        fi
-    done
+    res=1
+    if ! command -v "jq" > /dev/null 2>&1; then
+        echo "ERROR: 'jq' is required but not installed." >&2
+        echo "Install it (e.g. sudo apt-get update && sudo apt-get install -y jq )" >&2
+        res=0
+    fi
+    if ! command -v "envsubst" > /dev/null 2>&1; then
+        echo "ERROR: 'envsubst' is required but not installed. " >&2
+        echo "Please install it (e.g. sudo apt-get update && sudo apt-get install -y gettext)" >&2
+        res=0
+    fi
+    if [ "$res" = "0" ]; then
+        echo "Please install the required prerequisites and try again." >&2
+        exit 1
+    fi
 }
 
 load_env() {
