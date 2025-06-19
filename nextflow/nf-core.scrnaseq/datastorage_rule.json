@@ -1,0 +1,76 @@
+{
+    "datastorage_rule": [
+        {
+            "file_mask": "*",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": ""
+        },
+        {
+            "file_mask": "pipeline_info/execution_report_*.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Pipeline execution report"
+        },
+        {
+            "file_mask": "pipeline_info/execution_timeline_*.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Pipeline execution timeline"
+        },
+        {
+            "file_mask": "pipeline_info/params_*.json",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Pipeline params"
+        },
+        {
+            "file_mask": "pipeline_info/pipeline_dag_*.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Pipeline DAG"
+        },
+        {
+            "file_mask": "star/*/*.Aligned.sortedByCoord.out.bam",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "STAR reads"
+        },
+        {
+            "file_mask": "star/*/emptydrops_filter/*_report.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "STAR emptydrops"
+        },
+        {
+            "file_mask": "star/*/*.Solo.out/Gene/filtered/*",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "STAR solo features"
+        },
+        {
+            "file_mask": "fastqc/*_fastqc.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "FastQC"
+        },
+        {
+            "file_mask": "multiqc/multiqc_report.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc"
+        },
+        {
+            "file_mask": "multiqc/multiqc_plots/png/general_stats_table.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc General Statistics"
+        },
+        {
+            "file_mask": "multiqc/multiqc_plots/png/star*.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc STAR"
+        }
+    ]
+}

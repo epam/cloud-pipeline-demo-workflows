@@ -1,0 +1,130 @@
+{
+    "datastorage_rule": [
+        {
+            "file_mask": "*",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": ""
+        },
+        {
+            "file_mask": "bismark/alignments/logs/*_report.txt",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Bismark alignments logs"
+        },
+        {
+            "file_mask": "bismark/reports/*_report.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Bismark reports"
+        },
+        {
+            "file_mask": "bismark/summary/bismark_summary_report.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Bismark summary report"
+        },
+        {
+            "file_mask": "fastqc/*_fastqc.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "FastQC reports"
+        },
+        {
+            "file_mask": "pipeline_info/execution_report_*.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Pipeline execution report"
+        },
+        {
+            "file_mask": "pipeline_info/execution_timeline_*.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Pipeline execution timeline"
+        },
+        {
+            "file_mask": "pipeline_info/params_*.json",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Pipeline params"
+        },
+        {
+            "file_mask": "pipeline_info/pipeline_dag_*.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Pipeline DAG"
+        },
+        {
+            "file_mask": "trimgalore/logs/*_trimming_report.txt",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Trimgalore logs"
+        },
+        {
+            "file_mask": "multiqc/bismark/multiqc_report.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc Bismark"
+        },
+        {
+            "file_mask": "multiqc/bismark/multiqc_plots/png/bismark-methylation-dp.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc Bismark methylation"
+        },
+        {
+            "file_mask": "multiqc/bismark/multiqc_plots/png/bismark_deduplication-*.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc Bismark deduplication"
+        },
+        {
+            "file_mask": "multiqc/bismark/multiqc_plots/png/bismark_mbias_*.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc Bismark methylation bias"
+        },
+        {
+            "file_mask": "multiqc/bismark/multiqc_plots/png/bismark*_alignment-*.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc Bismark alignment"
+        },
+        {
+            "file_mask": "multiqc/bismark/multiqc_plots/png/cutadapt_*.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc cutadapt"
+        },
+        {
+            "file_mask": "multiqc/bismark/multiqc_plots/png/fastqc_*.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc FastQC"
+        },
+        {
+            "file_mask": "multiqc/bismark/multiqc_plots/png/general_stats_table.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc General Statistics"
+        },
+        {
+            "file_mask": "bismark/methylation_calls/methylation_calls/*.deduplicated.txt.gz",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Bismark methylation calls"
+        },
+        {
+            "file_mask": "bismark/methylation_calls/methylation_coverage/*.deduplicated.bismark.cov.gz",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Bismark methylation covs"
+        },
+        {
+            "file_mask": "bismark/deduplicated/*.deduplicated.sorted.bam*",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Bismark alignments"
+        }
+    ]
+}

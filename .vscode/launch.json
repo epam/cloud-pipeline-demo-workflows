@@ -8,6 +8,23 @@
             "program": "${workspaceFolder}/deploy-pipelines-nextflow.sh",
             "args": [],
             "cwd": "${workspaceFolder}",
+        },
+        {
+            "name": "collect-datastorage-rule",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/utils/collect-datastorage-rule.py",
+            "args": [
+                "--pipeline-csv", "pipeline.csv",
+                "--datastorage-rule-csv", "datastorage_rule.csv",
+                "--output-dir", "output"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "cwd": "${workspaceFolder}/analysis"
         }
     ]
 }

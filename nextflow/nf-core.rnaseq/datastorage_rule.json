@@ -1,0 +1,112 @@
+{
+    "datastorage_rule": [
+        {
+            "file_mask": "*",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": ""
+        },
+        {
+            "file_mask": "pipeline_info/execution_report_*.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Pipeline execution report"
+        },
+        {
+            "file_mask": "pipeline_info/execution_timeline_*.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Pipeline execution timeline"
+        },
+        {
+            "file_mask": "pipeline_info/params_*.json",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Pipeline params"
+        },
+        {
+            "file_mask": "pipeline_info/pipeline_dag_*.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Pipeline DAG"
+        },
+        {
+            "file_mask": "fastqc/raw/*_fastqc.zip",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "FastQC raw"
+        },
+        {
+            "file_mask": "fastqc/trim/*_fastqc.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "FastQC trimmed"
+        },
+        {
+            "file_mask": "salmon/*/quant*.sf",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "salmon quants"
+        },
+        {
+            "file_mask": "star_salmon/*/quant*.sf",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "STAR salmon quants "
+        },
+        {
+            "file_mask": "star_salmon/*.markdup.sorted.bam",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "STAR salmon reads"
+        },
+        {
+            "file_mask": "tximeta/*.tsv",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "tximeta annotation"
+        },
+        {
+            "file_mask": "multiqc/star_salmon/multiqc_report.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc STAR salmon"
+        },
+        {
+            "file_mask": "multiqc/star_salmon/multiqc_report_plots/png/cutadapt*.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc STAR salmon cutadapt"
+        },
+        {
+            "file_mask": "multiqc/star_salmon/multiqc_report_plots/png/fastqc*.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc STAR salmon FastQC"
+        },
+        {
+            "file_mask": "multiqc/star_salmon/multiqc_report_plots/png/featurecounts*.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc STAR salmon features"
+        },
+        {
+            "file_mask": "multiqc/star_salmon/multiqc_report_plots/png/general_stats_table.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc General Statistics"
+        },
+        {
+            "file_mask": "multiqc/star_salmon/multiqc_report_plots/png/picard*.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc STAR salmon picard"
+        },
+        {
+            "file_mask": "multiqc/star_salmon/multiqc_report_plots/png/qualimap*.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc STAR salmon QualiMap"
+        }
+    ]
+}

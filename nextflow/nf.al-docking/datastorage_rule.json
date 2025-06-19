@@ -1,0 +1,52 @@
+{
+    "datastorage_rule": [
+        {
+            "file_mask": "*-out/*.model.pth",
+            "move_to_sts": false,
+            "is_result": true,
+            "name": "Models"
+        },
+        {
+            "file_mask": "*-out/*.inferred.csv",
+            "move_to_sts": false,
+            "is_result": true,
+            "name": "Inferred"
+        },
+        {
+            "file_mask": "reports/report.*.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Report"
+        },
+        {
+            "file_mask": "multiqc/bismark/multiqc_plots/png/bismark-methylation-dp.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc Bismark methylation"
+        },
+        {
+            "file_mask": "pipeline_info/execution_report_*.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Pipeline execution report"
+        },
+        {
+            "file_mask": "pipeline_info/execution_timeline_*.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Pipeline execution timeline"
+        },
+        {
+            "file_mask": "pipeline_info/params_*.json",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Pipeline params"
+        },
+        {
+            "file_mask": "pipeline_info/pipeline_dag_*.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Pipeline DAG"
+        }
+    ]
+}

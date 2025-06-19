@@ -1,0 +1,124 @@
+{
+    "datastorage_rule": [
+        {
+            "file_mask": "*",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": ""
+        },
+        {
+            "file_mask": "pipeline_info/execution_report_*.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Pipeline execution report"
+        },
+        {
+            "file_mask": "pipeline_info/execution_timeline_*.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Pipeline execution timeline"
+        },
+        {
+            "file_mask": "pipeline_info/params_*.json",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Pipeline params"
+        },
+        {
+            "file_mask": "pipeline_info/pipeline_dag_*.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Pipeline DAG"
+        },
+        {
+            "file_mask": "preprocessing/recalibrated/*/*.cram*",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "reads recalibrated"
+        },
+        {
+            "file_mask": "variant_calling/cnvkit/*/.vcf*",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Variants CNVkit"
+        },
+        {
+            "file_mask": "variant_calling/freebayes/*/.vcf*",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Variants freebayes"
+        },
+        {
+            "file_mask": "variant_calling/strelka/*/.vcf*",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Variants Strelka"
+        },
+        {
+            "file_mask": "ensemblvep/*",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "Ensemble VEP"
+        },
+        {
+            "file_mask": "multiqc/multiqc_report.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc"
+        },
+        {
+            "file_mask": "multiqc/multiqc_plots/png/fastqc*.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc FastQC"
+        },
+        {
+            "file_mask": "multiqc/multiqc_plots/png/bcftools*.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc bcftools"
+        },
+        {
+            "file_mask": "multiqc/multiqc_plots/png/gatk*.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc GATK"
+        },
+        {
+            "file_mask": "multiqc/multiqc_plots/png/general_stats_table.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiq General Statistics"
+        },
+        {
+            "file_mask": "multiqc/multiqc_plots/png/mosdepth*.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc mosdepth"
+        },
+        {
+            "file_mask": "multiqc/multiqc_plots/png/picard*.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc picard"
+        },
+        {
+            "file_mask": "multiqc/multiqc_plots/png/samtools*.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc samtools"
+        },
+        {
+            "file_mask": "multiqc/multiqc_plots/png/vcftools*.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc vcftools"
+        },
+        {
+            "file_mask": "multiqc/multiqc_plots/png/vep-general-stats.png",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "multiqc Ensemble VEP"
+        }
+    ]
+}

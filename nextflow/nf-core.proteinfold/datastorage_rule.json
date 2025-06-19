@@ -1,0 +1,28 @@
+{
+    "datastorage_rule": [
+        {
+            "file_mask": "*",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": ""
+        },
+        {
+            "file_mask": "esmfold/default/*.pdb",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "esmfold result pdbs"
+        },
+        {
+            "file_mask": "esmfold/default/*.tsv",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "esmfold result tsvs"
+        },
+        {
+            "file_mask": "generate/*_report.html",
+            "move_to_sts": false,
+            "is_result": false,
+            "name": "reports"
+        }
+    ]
+}
